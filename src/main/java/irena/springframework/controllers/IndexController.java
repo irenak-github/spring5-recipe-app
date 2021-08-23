@@ -1,7 +1,5 @@
 package irena.springframework.controllers;
 
-import irena.springframework.repositories.CategoryRepository;
-import irena.springframework.repositories.UnitOfMeasureRepository;
 import irena.springframework.service.RecipeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
