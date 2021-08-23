@@ -1,5 +1,7 @@
 package irena.springframework.service;
 
+import irena.springframework.converters.RecipeCommandToRecipe;
+import irena.springframework.converters.RecipeToRecipeCommand;
 import irena.springframework.domain.Recipe;
 import irena.springframework.repositories.RecipeRepository;
 import org.junit.Before;
@@ -17,17 +19,24 @@ import static org.mockito.Mockito.*;
 
 public class RecipeServiceImplTest {
 
-    @Mock
-    RecipeService recipeService;
+    RecipeServiceImpl recipeService;
 
+    @Mock
     RecipeRepository recipeRepository;
+
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
+
 
     @Test
     public void getRecipeByIdTest() throws Exception {
